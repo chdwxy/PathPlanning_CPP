@@ -14,6 +14,13 @@ find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
 include_directories(${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS})
 
 
+# Dijkstra
+add_executable(dijkstra_demo Dijkstra/main.cpp Dijkstra/Dijkstra.cpp)
+target_link_libraries(dijkstra_demo PRIVATE Planning_and_Tracking)
+
+# AntColony
+add_executable(AntColony_demo AntColony/main.cpp AntColony/AntColony.cpp)
+target_link_libraries(AntColony_demo PRIVATE Planning_and_Tracking)
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
@@ -48,9 +55,7 @@ include_directories(${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS})
 # add_executable(rrt_star_demo Rapidly-exploring_Random_Tree_Star/main.cpp Rapidly-exploring_Random_Tree_Star/RRT_Star.cpp Rapidly-exploring_Random_Tree/RRT.cpp)
 # target_link_libraries(rrt_star_demo PRIVATE Planning_and_Tracking)
 
-# Dijkstra
-add_executable(dijkstra_demo Dijkstra/main.cpp Dijkstra/Dijkstra.cpp)
-target_link_libraries(dijkstra_demo PRIVATE Planning_and_Tracking)
+
 
 # # astar
 # add_executable(astar_demo A_Star/Astar.cpp A_Star/main.cpp)
