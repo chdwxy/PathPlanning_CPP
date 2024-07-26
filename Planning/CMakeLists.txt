@@ -31,6 +31,10 @@ add_executable(DP_demo DynamicProgramming/main.cpp DynamicProgramming/DP.cpp)
 target_link_libraries(DP_demo PRIVATE Planning_and_Tracking sfml-audio sfml-graphics sfml-window sfml-system)
 # target_link_libraries(Planning_and_Tracking sfml-audio sfml-graphics)
 
+# AStar
+add_executable(AStar_demo AStar/AStar.cpp AStar/main.cpp)
+target_link_libraries(AStar_demo PRIVATE Planning_and_Tracking)
+
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
 # target_link_libraries(bezier_demo PRIVATE Planning_and_Tracking)
@@ -63,12 +67,6 @@ target_link_libraries(DP_demo PRIVATE Planning_and_Tracking sfml-audio sfml-grap
 # # RRT_star
 # add_executable(rrt_star_demo Rapidly-exploring_Random_Tree_Star/main.cpp Rapidly-exploring_Random_Tree_Star/RRT_Star.cpp Rapidly-exploring_Random_Tree/RRT.cpp)
 # target_link_libraries(rrt_star_demo PRIVATE Planning_and_Tracking)
-
-
-
-# # astar
-# add_executable(astar_demo A_Star/Astar.cpp A_Star/main.cpp)
-# target_link_libraries(astar_demo PRIVATE Planning_and_Tracking)
 
 # # RS曲线
 # add_executable(rs_demo Reeds_Shepp_Path/main.cpp Reeds_Shepp_Path/ReedsShepp.cpp)
