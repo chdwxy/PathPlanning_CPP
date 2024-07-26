@@ -13,6 +13,10 @@ set(CMAKE_PREFIX_PATH "/usr/lib/python3/dsit-packages/cmake" ${CMAKE_PREFIX_PATH
 find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
 include_directories(${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS})
 
+set(CMAKE_PREFIX_PATH "/usr/include/SFML")
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+# 链接库
+# target_link_libraries(AntColony_demo PRIVATE Planning_and_Tracking sfml-graphics sfml-window sfml-system)
 
 # Dijkstra
 add_executable(dijkstra_demo Dijkstra/main.cpp Dijkstra/Dijkstra.cpp)
@@ -21,6 +25,11 @@ target_link_libraries(dijkstra_demo PRIVATE Planning_and_Tracking)
 # AntColony
 add_executable(AntColony_demo AntColony/main.cpp AntColony/AntColony.cpp)
 target_link_libraries(AntColony_demo PRIVATE Planning_and_Tracking)
+
+# Dynamic Programming
+add_executable(DP_demo DynamicProgramming/main.cpp DynamicProgramming/DP.cpp)
+target_link_libraries(DP_demo PRIVATE Planning_and_Tracking sfml-audio sfml-graphics sfml-window sfml-system)
+# target_link_libraries(Planning_and_Tracking sfml-audio sfml-graphics)
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
