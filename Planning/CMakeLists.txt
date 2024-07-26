@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
+# 打印包含路径以验证正确性
+message(STATUS "Include path: ${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include")
+
+include_directories(${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include)
 
 # set(CMAKE_PREFIX_PATH "/usr/include/eigen3" ${CMAKE_PREFIX_PATH})
 set(CMAKE_PREFIX_PATH "/usr/lib/python3/dsit-packages/cmake" ${CMAKE_PREFIX_PATH})
@@ -39,8 +43,14 @@ target_link_libraries(AStar_demo PRIVATE Planning_and_Tracking)
 add_executable(JPS_demo 
                                     JumpPointSearch/JPS.cpp 
                                     JumpPointSearch/main.cpp
-                                    JumpPointSearch/utils.cpp)
+                                    /home/shaozeping/coding/Planning_and_Tracking/lib/src/utils.cpp)
 target_link_libraries(JPS_demo PRIVATE Planning_and_Tracking)
+
+# LPAStar
+add_executable(LPAStar_demo 
+                                    LPAStar/LPAStar.cpp 
+                                    LPAStar/main.cpp)
+target_link_libraries(LPAStar_demo PRIVATE Planning_and_Tracking)
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)

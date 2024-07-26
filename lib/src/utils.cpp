@@ -9,7 +9,7 @@
 #include <iostream>
 #include <random>
 
-#include "utils.hpp"
+#include "lib/include/utils.hpp"
 #define CUSTOM_DEBUG_HELPER_FUNCION = true;
 
 // constants

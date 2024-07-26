@@ -7,8 +7,8 @@
 
 #include <queue>
 #include <unordered_set>
-#include "planner.hpp"
-#include "utils.hpp"
+#include "lib/include/planner.hpp"
+#include "lib/include/utils.hpp"
 
 
 /**
