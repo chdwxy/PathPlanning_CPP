@@ -2,7 +2,7 @@
 // Created by chd on 2024/7/26.
 //
 
-#include "AStar.h"
+#include "AStar.hpp"
 
 Astar::Node::Node(double x, double y, float cost, double parentIndex) : x(x), y(y), cost(cost), parent_index(parentIndex) {}
 

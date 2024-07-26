@@ -2,7 +2,7 @@
 // Created by chd on 2024/7/26.
 //
 
-#include "AStar.h"
+#include "AStar.hpp"
 
 int main(){
     vector<double>start{-5,-5},goal{50,50};

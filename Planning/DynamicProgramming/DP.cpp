@@ -2,7 +2,7 @@
 // Created by chd on 2024/7/26.
 //
 
-#include "DP.h"
+#include "DP.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stack>

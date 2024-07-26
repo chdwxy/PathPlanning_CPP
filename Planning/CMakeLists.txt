@@ -35,6 +35,13 @@ target_link_libraries(DP_demo PRIVATE Planning_and_Tracking sfml-audio sfml-grap
 add_executable(AStar_demo AStar/AStar.cpp AStar/main.cpp)
 target_link_libraries(AStar_demo PRIVATE Planning_and_Tracking)
 
+# jump_point_search
+add_executable(JPS_demo 
+                                    JumpPointSearch/JPS.cpp 
+                                    JumpPointSearch/main.cpp
+                                    JumpPointSearch/utils.cpp)
+target_link_libraries(JPS_demo PRIVATE Planning_and_Tracking)
+
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
 # target_link_libraries(bezier_demo PRIVATE Planning_and_Tracking)

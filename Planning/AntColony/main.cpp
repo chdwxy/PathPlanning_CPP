@@ -1,4 +1,4 @@
-#include "AntColony.h" // 包含蚁群算法头文件
+#include "AntColony.hpp" // 包含蚁群算法头文件
 
 int main() {
     int numAnts = 10; // 设置蚂蚁数量

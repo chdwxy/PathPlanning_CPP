@@ -1,4 +1,4 @@
-#include "AntColony.h"
+#include "AntColony.hpp"
 #include <iostream>
 #include <cmath>
 #include <limits>
