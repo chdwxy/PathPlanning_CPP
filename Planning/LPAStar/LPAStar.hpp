@@ -12,8 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "planner.hpp"
-#include "utils.hpp"
+#include "utils/planner.hpp"
+#include "utils/utils.hpp"
 
 /**
  * @brief Class for objects that plan using the LPA* algorithm

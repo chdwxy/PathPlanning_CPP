@@ -21,6 +21,10 @@
             ],
             "preLaunchTask": "build",
             "miDebuggerPath": "/usr/bin/gdb"
+            // "includePath":[
+            //     "${workspaceFolder}/**",
+            //     "${workspaceFolder}/lib/include"
+            // ]
         }
     ]
 }

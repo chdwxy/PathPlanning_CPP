@@ -7,9 +7,14 @@ set(CMAKE_CXX_STANDARD 14)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 # 打印包含路径以验证正确性
-message(STATUS "Include path: ${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include")
+# message(STATUS "Include path: ${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include")
 
-include_directories(${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include)
+include_directories(${PROJECT_SOURCE_DIR}/lib/include)
+
+# include_directories(${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include)
+# include_directories(${CMAKE_SOURCE_DIR}/lib/include)
+# add_subdirectory(lib)
+# add_subdirectory(${CMAKE_SOURCE_DIR}/lib  ${CMAKE_BINARY_DIR}/lib_build)
 
 # set(CMAKE_PREFIX_PATH "/usr/include/eigen3" ${CMAKE_PREFIX_PATH})
 set(CMAKE_PREFIX_PATH "/usr/lib/python3/dsit-packages/cmake" ${CMAKE_PREFIX_PATH})
@@ -17,7 +22,10 @@ set(CMAKE_PREFIX_PATH "/usr/lib/python3/dsit-packages/cmake" ${CMAKE_PREFIX_PATH
 find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
 include_directories(${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS})
 
-set(CMAKE_PREFIX_PATH "/usr/include/SFML")
+# find_library(MYLIB mylib HINTS ${CMAKE_SOURCE_DIR}/lib/include)
+# find_library(UTILS_LIB utils HINTS ${CMAKE_SOURCE_DIR}/lib/utils)
+
+# set(CMAKE_PREFIX_PATH "/usr/include/SFML")
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 # 链接库
 # target_link_libraries(AntColony_demo PRIVATE Planning_and_Tracking sfml-graphics sfml-window sfml-system)
@@ -42,8 +50,7 @@ target_link_libraries(AStar_demo PRIVATE Planning_and_Tracking)
 # jump_point_search
 add_executable(JPS_demo 
                                     JumpPointSearch/JPS.cpp 
-                                    JumpPointSearch/main.cpp
-                                    /home/shaozeping/coding/Planning_and_Tracking/lib/src/utils.cpp)
+                                    JumpPointSearch/main.cpp)
 target_link_libraries(JPS_demo PRIVATE Planning_and_Tracking)
 
 # LPAStar
