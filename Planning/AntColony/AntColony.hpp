@@ -9,6 +9,7 @@ public:
     void initialize(); // 初始化函数
     void optimize(int iterations); // 优化函数，执行指定次数的迭代
     void printBestPath(); // 打印最优路径
+    void plot();
 
 private:
     int numAnts; // 蚂蚁数量

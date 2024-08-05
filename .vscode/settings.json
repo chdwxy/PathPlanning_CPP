@@ -53,6 +53,7 @@
         "ratio": "cpp",
         "iomanip": "cpp",
         "thread": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "list": "cpp"
     }
 }

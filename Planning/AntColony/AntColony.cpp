@@ -4,6 +4,9 @@
 #include <limits>
 #include <algorithm>
 #include <random>
+#include "../../matplotlibcpp.h"
+
+namespace plt = matplotlibcpp;
 
 AntColony::AntColony(int numAnts, int numCities, double alpha, double beta, double evaporation, double q)
     : numAnts(numAnts), numCities(numCities), alpha(alpha), beta(beta), evaporation(evaporation), q(q) {
@@ -38,6 +41,7 @@ void AntColony::optimize(int iterations) {
     for (int iter = 0; iter < iterations; ++iter) {
         moveAnts();
         updatePheromones();
+        plot();
     }
 }
 
@@ -90,4 +94,39 @@ void AntColony::printBestPath() {
         std::cout << city << " ";
     }
     std::cout << "\nBest Path Length: " << bestPathLength << std::endl;
+}
+
+
+void AntColony::plot() {
+    std::vector<double> x(numCities);
+    std::vector<double> y(numCities);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0.0, 100.0);
+
+    for (int i = 0; i < numCities; ++i) {
+        x[i] = dis(gen);
+        y[i] = dis(gen);
+    }
+
+    plt::clf();
+    plt::plot(x, y, "ro");
+
+    for (int i = 0; i < numCities; ++i) {
+        for (int j = 0; j < numCities; ++j) {
+            if (i != j) {
+                plt::plot({x[i], x[j]}, {y[i], y[j]}, "b-");
+            }
+        }
+    }
+
+    std::vector<double> bestX(numCities);
+    std::vector<double> bestY(numCities);
+    for (int i = 0; i < numCities; ++i) {
+        bestX[i] = x[bestPath[i]];
+        bestY[i] = y[bestPath[i]];
+    }
+
+    plt::plot(bestX, bestY, "g-");
+    plt::pause(0.01);
 }
