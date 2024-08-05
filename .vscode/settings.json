@@ -52,6 +52,7 @@
         "chrono": "cpp",
         "ratio": "cpp",
         "iomanip": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "set": "cpp"
     }
 }

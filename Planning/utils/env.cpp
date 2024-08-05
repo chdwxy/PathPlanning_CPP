@@ -1,4 +1,4 @@
-#include "utils/env.hpp"
+#include "../utils/env.hpp"
 
 Env::Env() {
     motions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}};

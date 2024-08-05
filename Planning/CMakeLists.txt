@@ -6,29 +6,52 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
+
+set(OpenCV_DIR /usr/local/opencv3.4)
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+# 手动添加 libtiff 库
+find_package(TIFF REQUIRED)
+include_directories(${TIFF_INCLUDE_DIR})
+link_libraries(${TIFF_LIBRARIES})
+
+find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
+include_directories(${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS})
+set(CMAKE_PREFIX_PATH "/usr/lib/python3/dsit-packages/cmake" ${CMAKE_PREFIX_PATH})
+
+
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+
+
+
+
 # 打印包含路径以验证正确性
 # message(STATUS "Include path: ${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include")
 
-include_directories(${PROJECT_SOURCE_DIR}/lib/include)
+# include_directories(${PROJECT_SOURCE_DIR}/lib/include)
 
 # include_directories(${PROJECT_SOURCE_DIR}/Planning_and_Tracking/lib/include)
 # include_directories(${CMAKE_SOURCE_DIR}/lib/include)
 # add_subdirectory(lib)
-# add_subdirectory(${CMAKE_SOURCE_DIR}/lib  ${CMAKE_BINARY_DIR}/lib_build)
 
 # set(CMAKE_PREFIX_PATH "/usr/include/eigen3" ${CMAKE_PREFIX_PATH})
-set(CMAKE_PREFIX_PATH "/usr/lib/python3/dsit-packages/cmake" ${CMAKE_PREFIX_PATH})
 
-find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
-include_directories(${Python3_INCLUDE_DIRS} ${Python3_NumPy_INCLUDE_DIRS})
+
+
+# add_subdirectory(${CMAKE_SOURCE_DIR}/lib  ${CMAKE_BINARY_DIR}/lib_build)
 
 # find_library(MYLIB mylib HINTS ${CMAKE_SOURCE_DIR}/lib/include)
-# find_library(UTILS_LIB utils HINTS ${CMAKE_SOURCE_DIR}/lib/utils)
+# find_library(UTIL_LIB util HINTS ${CMAKE_SOURCE_DIR}/lib/utils)
 
 # set(CMAKE_PREFIX_PATH "/usr/include/SFML")
-find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+
 # 链接库
 # target_link_libraries(AntColony_demo PRIVATE Planning_and_Tracking sfml-graphics sfml-window sfml-system)
+
+# test
+add_executable(test_demo test/test.cpp)
+target_link_libraries(test_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # Dijkstra
 add_executable(dijkstra_demo Dijkstra/main.cpp Dijkstra/Dijkstra.cpp)
@@ -48,16 +71,16 @@ add_executable(AStar_demo AStar/AStar.cpp AStar/main.cpp)
 target_link_libraries(AStar_demo PRIVATE Planning_and_Tracking)
 
 # jump_point_search
-add_executable(JPS_demo 
-                                    JumpPointSearch/JPS.cpp 
-                                    JumpPointSearch/main.cpp)
+add_executable(JPS_demo JumpPointSearch/JPS.cpp JumpPointSearch/main.cpp utils/utils.hpp utils/utils.cpp utils/planner.hpp)
 target_link_libraries(JPS_demo PRIVATE Planning_and_Tracking)
 
 # LPAStar
-add_executable(LPAStar_demo 
-                                    LPAStar/LPAStar.cpp 
-                                    LPAStar/main.cpp)
+add_executable(LPAStar_demo LPAStar/LPAStar.cpp LPAStar/main.cpp utils/utils.hpp utils/utils.cpp utils/planner.hpp)
 target_link_libraries(LPAStar_demo PRIVATE Planning_and_Tracking)
+
+# ARAStar
+add_executable(ARAStar_demo ARAStar/arastar.cpp ARAStar/main.cpp utils/env.hpp utils/env.cpp utils/plotting.hpp utils/plotting.cpp)
+target_link_libraries(ARAStar_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)

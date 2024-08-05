@@ -50,27 +50,27 @@ install(
 # target_link_libraries(main PRIVATE Planning_and_Tracking)
 
 
-add_subdirectory(Tracking bin)
-add_subdirectory(lib)
+add_subdirectory(Tracking bin_tracking)
+# add_subdirectory(lib)
 add_subdirectory(Planning bin_planning)
 
-file( GLOB LIB_SOURCES
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/a_star.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/dijkstra.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/rrt_star.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/rrt.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/lpa_star.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/d_star_lite.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/ant_colony.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/genetic_algorithm.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/jump_point_search.cpp
-)
+# file( GLOB LIB_SOURCES
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/a_star.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/dijkstra.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/rrt_star.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/rrt.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/lpa_star.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/d_star_lite.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/ant_colony.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/genetic_algorithm.cpp
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/jump_point_search.cpp
+# )
 
-foreach(file ${LIB_SOURCES})
-    get_filename_component(ouput_file ${file} NAME_WE)
-    add_executable(${ouput_file})
-    target_include_directories(${ouput_file} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-    target_sources(${ouput_file} PRIVATE ${file})
-    target_compile_options (${ouput_file}  PRIVATE -O3)
-    target_link_libraries(${ouput_file} PRIVATE utils project_options project_warnings)
-  endforeach(file ${LIB_SOURCES})
+# foreach(file ${LIB_SOURCES})
+#     get_filename_component(ouput_file ${file} NAME_WE)
+#     add_executable(${ouput_file})
+#     target_include_directories(${ouput_file} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+#     target_sources(${ouput_file} PRIVATE ${file})
+#     target_compile_options (${ouput_file}  PRIVATE -O3)
+#     target_link_libraries(${ouput_file} PRIVATE utils project_options project_warnings)
+#   endforeach(file ${LIB_SOURCES})

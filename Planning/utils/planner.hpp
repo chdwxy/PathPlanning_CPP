@@ -11,7 +11,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "utils.hpp"
+#include "../utils/utils.hpp"
 
 /**
  *  Abstract class that is inherited by concerete implementaions of planner
