@@ -13,9 +13,15 @@ public:
     void animation_ara_star(const std::vector<std::vector<std::pair<int, int>>>& path, 
                             const std::vector<std::vector<std::pair<int, int>>>& visited, 
                             const std::string& title);
+    void plot_path(const std::vector<std::pair<int,int>>& path, 
+                                    const std::vector<std::vector<std::pair<int,int>>>& visited,
+                                    const std::string& title);
 
 private:
     std::pair<int, int> s_start, s_goal;
+    cv::Mat img;
+    int scale;
+    int rows, cols;
 };
 
 #endif // PLOTTING_HPP
