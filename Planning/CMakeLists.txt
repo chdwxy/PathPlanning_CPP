@@ -86,9 +86,9 @@ target_link_libraries(LPAStar_demo PRIVATE Planning_and_Tracking)
 add_executable(ARAStar_demo ARAStar/arastar.cpp ARAStar/main.cpp utils/env.hpp utils/env.cpp utils/plotting.hpp utils/plotting.cpp)
 target_link_libraries(ARAStar_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
-# # ARAStar_OpenCV
-# add_executable(ARAStar_OpenCV_demo ARAStar_OpenCV/arastar.cpp ARAStar_OpenCV/main.cpp ARAStar_OpenCV/env.cpp)
-# target_link_libraries(ARAStar_OpenCV_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
+# ARAStar_OpenCV
+add_executable(ARAStar_OpenCV_demo ARAStar_OpenCV/arastar.cpp ARAStar_OpenCV/main.cpp ARAStar_OpenCV/env.cpp)
+target_link_libraries(ARAStar_OpenCV_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
