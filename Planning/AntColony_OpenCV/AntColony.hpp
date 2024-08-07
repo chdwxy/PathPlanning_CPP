@@ -80,12 +80,13 @@
 
 
 
-#ifndef ANT_COLONY_H
-#define ANT_COLONY_H
+#ifndef ANT_COLONY_OPENCV_H
+#define ANT_COLONY_OPENCV_H
 
 #include <vector>
 #include <set>
-#include "env.hpp"
+// #include "env.hpp"
+#include "../utils/env.hpp"
 #include <opencv2/opencv.hpp>
 
 class AntColony {
@@ -120,4 +121,4 @@ private:
     void drawPath(cv::Mat& img, const std::vector<int>& path, const cv::Scalar& color);
 };
 
-#endif // ANT_COLONY_H
+#endif // ANT_COLONY_OPENCV_H

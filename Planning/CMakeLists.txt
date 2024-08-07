@@ -62,7 +62,8 @@ add_executable(AntColony_demo AntColony/main.cpp AntColony/AntColony.cpp)
 target_link_libraries(AntColony_demo PRIVATE Planning_and_Tracking)
 
 # AntColony_OpenCV
-add_executable(AntColony_OpenCV_demo AntColony_OpenCV/main.cpp AntColony_OpenCV/AntColony.cpp AntColony_OpenCV/env.cpp)
+# add_executable(AntColony_OpenCV_demo AntColony_OpenCV/main.cpp AntColony_OpenCV/AntColony.cpp AntColony_OpenCV/env.cpp)
+add_executable(AntColony_OpenCV_demo AntColony_OpenCV/main.cpp AntColony_OpenCV/AntColony.cpp utils/env.cpp)
 target_link_libraries(AntColony_OpenCV_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # Dynamic Programming
@@ -83,11 +84,15 @@ add_executable(LPAStar_demo LPAStar/LPAStar.cpp LPAStar/main.cpp utils/utils.hpp
 target_link_libraries(LPAStar_demo PRIVATE Planning_and_Tracking)
 
 # ARAStar
+# option(ENV_HPP "" OFF)
+# if (ENV_HPP)
+# target_compile_definitions(${PROJECT_NAME} PRIVATE ENV_HPP=1)
+# endif()
 add_executable(ARAStar_demo ARAStar/arastar.cpp ARAStar/main.cpp utils/env.hpp utils/env.cpp utils/plotting.hpp utils/plotting.cpp)
 target_link_libraries(ARAStar_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # ARAStar_OpenCV
-add_executable(ARAStar_OpenCV_demo ARAStar_OpenCV/arastar.cpp ARAStar_OpenCV/main.cpp ARAStar_OpenCV/env.cpp)
+add_executable(ARAStar_OpenCV_demo ARAStar_OpenCV/arastar.cpp ARAStar_OpenCV/main.cpp utils/env.cpp)
 target_link_libraries(ARAStar_OpenCV_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # # bezier

@@ -9,6 +9,8 @@
 // #include "env.hpp"
 #include "../utils/env.hpp"
 
+#define ENV_HPP = 1
+
 class AraStar {
 public:
     AraStar(std::pair<int, int> s_start, std::pair<int, int> s_goal, double e, std::string heuristic_type);
