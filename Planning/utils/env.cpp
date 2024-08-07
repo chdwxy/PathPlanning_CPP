@@ -1,4 +1,5 @@
 #include "../utils/env.hpp"
+#include <algorithm>
 
 // Env::Env() {
 //     motions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}};
@@ -11,6 +12,18 @@ Env::Env() {
     y_range = 55;
     obs = obs_map();
     motions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}}; // 8 directions
+}
+
+std::vector<std::pair<int, int>> Env::getMotions() const {
+    return motions;
+}
+
+std::vector<std::pair<int, int>> Env::getObstacles() const {
+    return obs_;
+}
+
+bool Env::isObstacle(int x, int y) const {
+    return std::find(obs.begin(), obs.end(), std::make_pair(x, y)) != obs.end();
 }
 
 void Env::update_obs(const std::set<std::pair<int, int>>& new_obs) {

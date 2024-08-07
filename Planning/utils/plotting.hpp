@@ -16,6 +16,10 @@ public:
     void plot_path(const std::vector<std::pair<int,int>>& path, 
                                     const std::vector<std::vector<std::pair<int,int>>>& visited,
                                     const std::string& title);
+    void animationBiAStar(const std::vector<std::pair<int, int>>& path,
+                          const std::vector<std::pair<int, int>>& visitedFore,
+                          const std::vector<std::pair<int, int>>& visitedBack,
+                          const std::string& title) const;
 
 private:
     std::pair<int, int> s_start, s_goal;

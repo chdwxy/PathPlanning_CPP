@@ -81,3 +81,16 @@ void Plotting::animation_ara_star(const std::vector<std::vector<std::pair<int, i
     cv::imshow(title, img);
     cv::waitKey(0);
 }
+
+void Plotting::animationBiAStar(const std::vector<std::pair<int, int>>& path,
+                                const std::vector<std::pair<int, int>>& visitedFore,
+                                const std::vector<std::pair<int, int>>& visitedBack,
+                                const std::string& title) const {
+    std::cout << title << std::endl;
+    std::cout << "Path: ";
+    for (const auto& p : path) {
+        std::cout << "(" << p.first << "," << p.second << ") ";
+    }
+    std::cout << std::endl;
+}
+

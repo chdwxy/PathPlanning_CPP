@@ -54,6 +54,7 @@
         "iomanip": "cpp",
         "thread": "cpp",
         "set": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "queue": "cpp"
     }
 }

@@ -9,7 +9,6 @@
 // #include "env.hpp"
 #include "../utils/env.hpp"
 
-#define ENV_HPP = 1
 
 class AraStar {
 public:
