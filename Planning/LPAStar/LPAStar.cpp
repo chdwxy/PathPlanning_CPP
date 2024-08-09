@@ -1,9 +1,3 @@
-/**
- * @file lpa_star.cpp
- * @author vss2sn
- * @brief Contains the LPAStar class
- */
-
 #include "LPAStar.hpp"
 
 #include <algorithm>

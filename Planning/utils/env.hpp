@@ -20,6 +20,9 @@ public:
     std::vector<std::pair<int, int>> getObstacles() const;
     bool isObstacle(int x, int y) const;
 
+    // LPAStar
+    void initialize();
+
 private:
     std::set<std::pair<int, int>> obs_map();
 

@@ -1,9 +1,3 @@
-/**
- * @file lpa_star.hpp
- * @author vss2sn
- * @brief Contains the LPAStar class
- */
-
 #ifndef LPA_STAR_H
 #define LPA_STAR_H
 

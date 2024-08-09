@@ -1,11 +1,22 @@
 cmake_minimum_required(VERSION 3.21)
 project(Planning_and_Tracking)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
+
+# set(ImageMagick_DIR /usr/include/ImageMagick-6)
+find_package(ImageMagick COMPONENTS Magick++ REQUIRED)
+include_directories(${ImageMagick_INCLUDE_DIRS})
+link_directories(${ImageMagick_LIBRARY_DIRS})
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(MAGICK REQUIRED ImageMagick)
+
+include_directories(${MAGICK_INCLUDE_DIRS})
+
+# target_link_libraries(${PROJECT_NAME} ${ImageMagick_LIBRARIES})
 
 set(OpenCV_DIR /usr/local/opencv3.4)
 find_package(OpenCV REQUIRED)
@@ -102,6 +113,17 @@ target_link_libraries(B_AStar_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} 
 # BidirectionalAStar_test
 add_executable(B_AStar_test_demo BidirectionalAStar_test/bidirectional_a_star.cpp BidirectionalAStar_test/main.cpp BidirectionalAStar_test/env.cpp utils/plotting.cpp)
 target_link_libraries(B_AStar_test_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
+
+# # LRTAStar
+# add_executable(LRTAStar_demo LRTAStar/LRTAStar.cpp LRTAStar/main.cpp utils/env.cpp utils/plotting.cpp)
+# target_link_libraries(LRTAStar_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
+
+# LRTAStar_test
+add_definitions(-DMAGICKCORE_QUANTUM_DEPTH=16)
+add_definitions(-DMAGICKCORE_HDRI_ENABLE=1)
+add_executable(LRTAStar_test_demo LRTAStar_test/test.cpp)
+target_link_libraries(LRTAStar_test_demo PRIVATE Planning_and_Tracking /usr/local/lib/libMagickCore-7.Q16HDRI.so
+/usr/local/lib/libMagickWand-7.Q16HDRI.so ${OpenCV_LIBS} ${TIFF_LIBRARIES} ${ImageMagick_LIBRARIES})
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)

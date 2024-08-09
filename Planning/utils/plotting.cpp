@@ -189,6 +189,36 @@ void Plotting::animation_ara_star(const std::vector<std::vector<std::pair<int, i
     cv::waitKey(0);
 }
 
+void Plotting::animation_lrta(const std::vector<std::vector<std::pair<int, int>>>& path, const std::vector<std::vector<std::pair<int, int>>>& visited, const std::string& title) {
+    img.setTo(cv::Scalar(255, 255, 255)); // Clear the image
+
+    for (const auto& visit : visited) {
+        for (const auto& step : visit) {
+            cv::circle(img, cv::Point(step.second * scale, step.first * scale), scale, cv::Scalar(0, 255, 0), -1);
+            cout << "Drawing circle at: (" << step.second * scale << ", " << step.first * scale << ") with radius: " << scale << std::endl;
+            cv::imshow(title, img);
+            cv::waitKey(50); // Wait 50 ms
+        }
+    }
+
+    for (const auto& path_step : path) {
+        for (const auto& step : path_step) {
+            cv::circle(img, cv::Point(step.second * scale, step.first * scale), scale, cv::Scalar(0, 0, 255), -1);
+            cout << "Drawing circle at: (" << step.second * scale << ", " << step.first * scale << ") with radius: " << scale << std::endl;
+            cv::imshow(title, img);
+            cv::waitKey(100); // Wait 100 ms
+        }
+    }
+
+    cv::circle(img, cv::Point(s_start.second * scale, s_start.first * scale), scale, cv::Scalar(255, 0, 0), -1);
+    cv::circle(img, cv::Point(s_goal.second * scale, s_goal.first * scale), scale, cv::Scalar(0, 255, 255), -1);
+
+    cout << "Drawing circle at: (" << s_start.second * scale << ", " << s_start.first * scale << ") with radius: " << scale << std::endl;
+
+    cv::imshow(title, img);
+    cv::waitKey(0);
+}
+
 // void Plotting::animationBiAStar(const std::vector<std::pair<int, int>>& path,
 //                                 const std::vector<std::pair<int, int>>& visitedFore,
 //                                 const std::vector<std::pair<int, int>>& visitedBack,

@@ -31,6 +31,9 @@ public:
                           const std::vector<std::pair<int, int>>& closed_fore,
                           const std::vector<std::pair<int, int>>& closed_back,
                           const std::string& filename) const;
+    void animation_lrta(const std::vector<std::vector<std::pair<int, int>>>& path,
+                        const std::vector<std::vector<std::pair<int, int>>>& visited,
+                        const std::string& title);
 
 private:
     std::pair<int, int> s_start, s_goal;
