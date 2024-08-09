@@ -53,6 +53,10 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 add_executable(test_demo test/test.cpp)
 target_link_libraries(test_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
+# circle_test
+add_executable(circle_test_demo test/circle_test.cpp)
+target_link_libraries(circle_test_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
+
 # Dijkstra
 add_executable(dijkstra_demo Dijkstra/main.cpp Dijkstra/Dijkstra.cpp)
 target_link_libraries(dijkstra_demo PRIVATE Planning_and_Tracking)
@@ -94,6 +98,10 @@ target_link_libraries(ARAStar_OpenCV_demo PRIVATE Planning_and_Tracking ${OpenCV
 # BidirectionalAStar
 add_executable(B_AStar_demo BidirectionalAStar/B_AStar.cpp BidirectionalAStar/main.cpp utils/env.cpp utils/plotting.cpp)
 target_link_libraries(B_AStar_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
+
+# BidirectionalAStar_test
+add_executable(B_AStar_test_demo BidirectionalAStar_test/bidirectional_a_star.cpp BidirectionalAStar_test/main.cpp BidirectionalAStar_test/env.cpp utils/plotting.cpp)
+target_link_libraries(B_AStar_test_demo PRIVATE Planning_and_Tracking ${OpenCV_LIBS} ${TIFF_LIBRARIES})
 
 # # bezier
 # add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)

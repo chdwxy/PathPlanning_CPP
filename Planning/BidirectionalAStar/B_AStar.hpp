@@ -24,12 +24,15 @@ class BidirectionalAStar {
 public:
     BidirectionalAStar(std::pair<int, int> start, std::pair<int, int> goal, const std::string& heuristicType);
     std::vector<std::pair<int, int>> searching();
+    void setPlotting(Plotting* plot) { plotting = plot; }
+    std::vector<std::pair<int, int>> getNeighbor(const std::pair<int, int>& s);
 
 private:
     std::pair<int, int> s_start;
     std::pair<int, int> s_goal;
     std::string heuristic_type;
     Env env;
+    Plotting* plotting;
 
     std::priority_queue<std::pair<double, std::pair<int, int>>, 
         std::vector<std::pair<double, std::pair<int, int>>>, 
@@ -44,7 +47,7 @@ private:
     // std::priority_queue<std::pair<double, std::pair<int, int>>> OPEN_fore;
     // std::priority_queue<std::pair<double, std::pair<int, int>>> OPEN_back;
 
-    std::vector<std::pair<int, int>> getNeighbor(const std::pair<int, int>& s);
+    
     std::vector<std::pair<int, int>> extractPath(const std::pair<int, int>& s_meet);
     double fValueFore(const std::pair<int, int>& s);
     double fValueBack(const std::pair<int, int>& s);

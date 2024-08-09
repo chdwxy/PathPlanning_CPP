@@ -67,7 +67,10 @@ std::vector<std::pair<int, int>> BidirectionalAStar::searching() {
             }
         }
     }
-
+    // 更新可视化
+    if (plotting) {
+        plotting->animationBiAStar({}, {}, {}, CLOSED_fore, CLOSED_back, "output.avi");
+    }
     return extractPath(s_meet);
 }
 
