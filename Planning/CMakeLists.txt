@@ -125,43 +125,42 @@ add_executable(LRTAStar_test_demo LRTAStar_test/test.cpp)
 target_link_libraries(LRTAStar_test_demo PRIVATE Planning_and_Tracking /usr/local/lib/libMagickCore-7.Q16HDRI.so
 /usr/local/lib/libMagickWand-7.Q16HDRI.so ${OpenCV_LIBS} ${TIFF_LIBRARIES} ${ImageMagick_LIBRARIES})
 
-# # bezier
-# add_executable(bezier_demo Bezier/main.cpp Bezier/BezierCurve.cpp)
-# target_link_libraries(bezier_demo PRIVATE Planning_and_Tracking)
+# 人工势场法
+add_executable(apf_demo ArtificalPotentialField/main.cpp ArtificalPotentialField/APF.cpp)
+target_link_libraries(apf_demo PRIVATE Planning_and_Tracking)
 
-# # B-spline
-# add_executable(b_spline_demo B-spline/main.cpp B-spline/BSpline.cpp)
-# target_link_libraries(b_spline_demo PRIVATE chhRobPlanning_and_Trackingotics_CPP)
+# bezier
+add_executable(bezier_demo BezierCurve/main.cpp BezierCurve/Bezier.cpp)
+target_link_libraries(bezier_demo PRIVATE Planning_and_Tracking)
 
-# # 曲线插值
-# add_executable(curve_demo Curve_interpolation/main.cpp )
-# target_link_libraries(curve_demo PRIVATE Planning_and_Tracking)
+# B-spline
+add_executable(bspline_demo BSpline/main.cpp BSpline/BSpline.cpp)
+target_link_libraries(bspline_demo PRIVATE Planning_and_Tracking)
 
+# 曲线插值
+add_executable(curve_demo Curve_interpolation/main.cpp )
+target_link_libraries(curve_demo PRIVATE Planning_and_Tracking)
 
-# # 人工势场法
-# add_executable(apf_demo Artifical_Potential_Field/main.cpp Artifical_Potential_Field/APF.cpp)
-# target_link_libraries(apf_demo PRIVATE Planning_and_Tracking)
+# 动态窗口法
+add_executable(dwa_demo Dynamic_Window_Approach/main.cpp Dynamic_Window_Approach/DWA.cpp)
+target_link_libraries(dwa_demo PRIVATE Planning_and_Tracking)
 
-# # 动态窗口法
-# add_executable(dwa_demo Dynamic_Window_Approach/main.cpp Dynamic_Window_Approach/DWA.cpp)
-# target_link_libraries(dwa_demo PRIVATE Planning_and_Tracking)
+# RRT
+add_executable(rrt_demo RRT/main.cpp RRT/RRT.cpp utils/geometry_utils.hpp)
+target_link_libraries(rrt_demo PRIVATE Planning_and_Tracking)
 
-# # RRT
-# add_executable(rrt_demo Rapidly-exploring_Random_Tree/main.cpp Rapidly-exploring_Random_Tree/RRT.cpp utils/geometry_utils.h)
-# target_link_libraries(rrt_demo PRIVATE Planning_and_Tracking)
+# RRT_connect
+add_executable(rrt_connect_demo RRT_connect/main.cpp RRT_connect/RRT_connect.cpp utils/geometry_utils.hpp)
+target_link_libraries(rrt_connect_demo PRIVATE Planning_and_Tracking)
 
-# # RRT_connect
-# add_executable(rrt_connect_demo Rapidly-exploring_Random_Tree_connect/main.cpp Rapidly-exploring_Random_Tree_connect/RRT_connect.cpp utils/geometry_utils.h)
-# target_link_libraries(rrt_connect_demo PRIVATE Planning_and_Tracking)
+# RRT_star
+add_executable(rrt_star_demo RRT_Star/main.cpp RRT_Star/RRT_Star.cpp RRT/RRT.cpp)
+target_link_libraries(rrt_star_demo PRIVATE Planning_and_Tracking)
 
-# # RRT_star
-# add_executable(rrt_star_demo Rapidly-exploring_Random_Tree_Star/main.cpp Rapidly-exploring_Random_Tree_Star/RRT_Star.cpp Rapidly-exploring_Random_Tree/RRT.cpp)
-# target_link_libraries(rrt_star_demo PRIVATE Planning_and_Tracking)
+# RS曲线
+add_executable(rs_demo ReedsShepp/main.cpp ReedsShepp/ReedsShepp.cpp)
+target_link_libraries(rs_demo PRIVATE Planning_and_Tracking)
 
-# # RS曲线
-# add_executable(rs_demo Reeds_Shepp_Path/main.cpp Reeds_Shepp_Path/ReedsShepp.cpp)
-# target_link_libraries(rs_demo PRIVATE Planning_and_Tracking)
-
-# # Dubins曲线
-# add_executable(dubins_demo Dubins_Path/main.cpp Dubins_Path/Dubins.cpp)
-# target_link_libraries(dubins_demo PRIVATE Planning_and_Tracking)
+# Dubins曲线
+add_executable(dubins_demo Dubins/main.cpp Dubins/Dubins.cpp)
+target_link_libraries(dubins_demo PRIVATE Planning_and_Tracking)
