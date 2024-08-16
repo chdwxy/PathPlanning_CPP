@@ -8,6 +8,7 @@
 #include <cmath>
 // #include "env.hpp"
 #include "../utils/env.hpp"
+#include <string>
 
 
 class AraStar {

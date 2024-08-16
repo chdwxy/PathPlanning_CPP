@@ -8,6 +8,7 @@
 #include <set>
 #include <queue>
 #include <cmath>
+#include <string>
 #include "env.hpp"
 
 class BidirectionalAStar {

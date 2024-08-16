@@ -1,6 +1,7 @@
 #include "arastar.hpp"
 #include <algorithm>
 #include <limits>
+#include <string>
 
 AraStar::AraStar(std::pair<int, int> s_start, std::pair<int, int> s_goal, double e, std::string heuristic_type)
     : s_start(s_start), s_goal(s_goal), e(e), heuristic_type(heuristic_type), env() {
